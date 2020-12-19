@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>corona capsule</title>
+    <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/segoe-fonts@1.0.1/segoe-fonts.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="views/css/font.css" rel="stylesheet">
+    <link href="views/css/bury_kakao.css" rel="stylesheet">
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            width: 100%;
+            height: calc(100% - 5vw);
+        }
+
+        #container {
+            margin: 110px auto 0 auto;
+            width: 1500px;
+            text-align: center;
+        }
+
+        #container #head span {
+            font-family: "KoPubDotumLight" !important;
+            color: #707070;
+            font-size: 40px;
+        }
+
+        .map_wrap {
+            margin-top: 40px;
+        }
+
+        @media(max-width:1500px) {
+            #container {
+                width: 100%;
+            }
+        }
+
+        @media(max-width: 1012px) {
+            #container {
+                margin: 12vw auto 0 auto;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+
+            #container #head span {
+                font-family: "KoPubDotumLight" !important;
+                color: #707070;
+                font-size: 6vw;
+            }
+
+            .map_wrap {
+                margin-top: 11vw;
+            }
+        }
+        
+        .small_icon {
+            width: 12px !important;
+            height: 12px !important;
+        }
+
+        .normal_icon {
+            width: 24px !important;
+            height: 24px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include ("../header/header.ejs") %>
+    <div id="container">
+        <div id="head">
+            <span><%= n %>개의 타입캡슐이 묻혀있습니다!
+            </span>
+        </div>
+        <div class="map_wrap">
+            <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+        </div>
+        <div id="total">
+        </div>
+    </div>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6bf5da4f4aa6ffcb7dd01568d9d6092d&libraries=services"></script>
+    <script>
+        var positions = [  // 마커의 위치
+            <% for (var i = 0; i < data.length; i++) { %>
+        {
+            title: '<%= data[i].loc %>',
+            latlng: new kakao.maps.LatLng(<%= data[i].latitude %>, <%= data[i].longtitude %>)
+        },
+            <% } %>
+        ];
+
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+            mapOption = {
+                center: new kakao.maps.LatLng(37.810834813628816, 127.48850234032203), // 지도의 중심좌표
+                level: 14 // 지도의 확대 레벨
+            };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+        // 마커 이미지의 이미지 주소입니다
+        var imageSrc = "../views/img/icon_school.png";
+
+        for (var i = 0; i < positions.length; i++) {
+            // 마커 이미지의 이미지 크기 입니다
+            var imageSize = new kakao.maps.Size(24, 24);
+
+            // 마커 이미지를 생성합니다    
+            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                map: map, // 마커를 표시할 지도
+                position: positions[i].latlng, // 마커를 표시할 위치
+                title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                image: markerImage // 마커 이미지 
+            });
+
+            (function (marker) {
+                // 마커에 mouseover 이벤트를 등록하고 마우스 오버 시 인포윈도우를 표시합니다 
+                kakao.maps.event.addListener(marker, 'click', function () {
+                    if(marker.Fb == "서강대학교 김대건관")
+                        location.href="../easteregg";
+                    else
+                        alert(marker.Fb+'에 캡슐이 묻혀있네요');
+                });
+            })(marker);
+        }
+
+        $('.map_wrap > div > div > div > div > div > img').addClass('small_icon');
+
+        // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+        var zoomControl = new kakao.maps.ZoomControl();
+        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+        // 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
+        kakao.maps.event.addListener(map, 'zoom_changed', function () {
+
+            // 지도의 현재 레벨을 얻어옵니다
+            var level = map.getLevel();
+            console.log('현재 지도 레벨은 ' + level + ' 입니다');
+
+            if (level > 6) {
+                $('.map_wrap > div > div > div > div > div > img').removeClass();
+                $('.map_wrap > div > div > div > div > div > img').addClass('small_icon');
+            }
+            else {
+                $('.map_wrap > div > div > div > div > div > img').removeClass();
+                $('.map_wrap > div > div > div > div > div > img').addClass('normal_icon');
+            }
+        });
+
+    </script>
+</body>
+
+</html>

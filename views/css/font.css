@@ -1,0 +1,128 @@
+@font-face {
+    font-family: "appleNeoH";
+    src: url("https://leed.at/fonts/AppleSDGothicNeoH.woff") format('woff');
+}
+
+@font-face {
+    font-family: "appleNeoT";
+    src: url("https://leed.at/fonts/AppleSDGothicNeoT.woff") format('woff');
+}
+
+@font-face {
+    font-family: "appleNeoB";
+    src: url("https://leed.at/fonts/AppleSDGothicNeoB.woff") format('woff');
+}
+
+@font-face {
+    font-family: "appleNeoEB";
+    src: url("https://leed.at/fonts/AppleSDGothicNeoEB.woff") format('woff');
+}
+
+@font-face {
+    font-family: "appleNeoL";
+    src: url("https://leed.at/fonts/AppleSDGothicNeoL.woff") format('woff');
+}
+
+@font-face {
+    font-family: "appleNeoM";
+    src: url("https://leed.at/fonts/AppleSDGothicNeoM.woff") format('woff');
+}
+
+@font-face {
+    font-family: "appleNeoR";
+    src: url("https://leed.at/fonts/AppleSDGothicNeoR.woff") format('woff');
+}
+
+@font-face {
+    font-family: "appleNeoSB";
+    src: url("https://leed.at/fonts/AppleSDGothicNeoSB.woff") format('woff');
+}
+
+@font-face {
+    font-family: "appleNeoUL";
+    src: url("https://leed.at/fonts/AppleSDGothicNeoUL.woff") format('woff');
+}
+
+@font-face {
+    font-family: "yes24";
+    src: url("https://leed.at/fonts/YES24.woff") format('woff');
+}
+
+@font-face {
+    font-family: "segoeui";
+    src: url("https://leed.at/fonts/segoeui.woff") format('woff');
+}
+
+@font-face {
+    font-family: "segoeuib";
+    src: url("https://leed.at/fonts/segoeuib.woff") format('woff');
+}
+
+@font-face {
+    font-family: "segoeuii";
+    src: url("https://leed.at/fonts/segoeuii.woff") format('woff');
+}
+
+@font-face {
+    font-family: "segoeuil";
+    src: url("https://leed.at/fonts/segoeuil.woff") format('woff');
+}
+
+@font-face {
+    font-family: "segoeuisl";
+    src: url("https://leed.at/fonts/segoeuisl.woff") format('woff');
+}
+
+@font-face {
+    font-family: "segoeuiz";
+    src: url("https://leed.at/fonts/segoeuiz.woff") format('woff');
+}
+
+@font-face {
+    font-family: "seguibl";
+    src: url("https://leed.at/fonts/seguibl.woff") format('woff');
+}
+
+@font-face {
+    font-family: "seguibli";
+    src: url("https://leed.at/fonts/seguibli.woff") format('woff');
+}
+
+@font-face {
+    font-family: "seguili";
+    src: url("https://leed.at/fonts/seguili.woff") format('woff');
+}
+
+@font-face {
+    font-family: "seguisb";
+    src: url("https://leed.at/fonts/seguisb.woff") format('woff');
+}
+
+@font-face {
+    font-family: "seguisbi";
+    src: url("https://leed.at/fonts/seguisbi.woff") format('woff');
+}
+
+@font-face {
+    font-family: "seguisli";
+    src: url("https://leed.at/fonts/seguisli.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'HCRDotum';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/HCRDotum.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "handotumb";
+    src: url("https://leed.at/fonts/HANDotumB.woff") format('woff');
+}
+@font-face {
+    font-family: "KoPubBatangMedium";
+    src: url("https://leed.at/fonts/KoPubBatangMedium.woff") format('woff');
+}
+@font-face {
+    font-family: "KoPubDotumLight";
+    src: url("https://leed.at/fonts/KoPubDotumLight.woff") format('woff');
+}

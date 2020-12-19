@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/segoe-fonts@1.0.1/segoe-fonts.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="views/css/font.css" rel="stylesheet">
+    <link href="views/css/bury_kakao.css" rel="stylesheet">
+    <style>
+        #content{
+            margin-top: 90px;
+            width:100%;
+            text-align: center;
+        }
+        #content .text {
+            font-family: "appleNeoB" !important;
+            color: #707070;
+            font-size: 43px;
+        }
+
+        #korea {
+            margin: 60px auto 0 auto;
+            width: 400px;
+        }
+
+        #korea img {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media(max-width:1012px) {
+            #content{
+                margin-top:15vw;
+            }
+            #content .text {
+                font-family: "appleNeoB" !important;
+                color: #707070;
+                font-size: 6vw;
+            }
+
+            #korea {
+                width: 68vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include ("../header/header.ejs") %>
+        <div id="content">
+            <div class="text">
+                묻고싶은 지역을 선택하세요!
+            </div>
+        </div>
+
+        <div id="korea">
+            <img src="../views/img/korea-2.png" usemap="#image-map">
+            <map name="image-map">
+                <area target="" alt="seoul" title="seoul" href="../bury?area=seoul"
+                    coords="145,366,140,371,141,379,152,382,160,373,155,365" shape="poly">
+                <area target="" alt="jeju" title="jeju" href="../bury?area=jeju"
+                    coords="117,636,99,643,94,659,123,656,142,646,133,635" shape="poly">
+                <area target="" alt="chungcheong" title="chungcheong" href="../bury?area=chungcheong"
+                    coords="136,414,121,408,113,411,101,422,103,432,113,434,115,451,122,455,120,471,129,478,140,473,152,471,162,473,172,482,182,477,196,481,205,469,196,456,196,439,207,433,223,427,230,419,239,410,224,404,216,398,203,399,187,402,179,411,171,414,161,417,147,416,140,424"
+                    shape="poly">
+                <area target="" alt="jeolla" title="jeolla" href="../bury?area=jeolla"
+                    coords="121,481,130,485,132,493,116,502,128,508,113,516,108,529,98,537,106,541,106,550,110,558,114,568,114,583,118,593,132,574,138,581,144,572,158,563,162,580,174,572,175,554,190,573,187,555,189,548,178,524,183,518,179,503,184,495,196,485,195,478,151,472,137,474,137,475,137,475"
+                    shape="poly">
+                <area target="" alt="gyungsang" title="gyungsang" href="../bury?area=gyungsang"
+                    coords="259,407,277,404,285,428,281,462,280,477,289,475,287,497,284,513,272,533,262,542,239,541,228,551,217,551,202,547,192,549,180,529,183,517,180,499,205,463,195,457,199,437,238,409"
+                    shape="poly">
+                <area target="" alt="gangwon" title="gangwon" href="../bury?area=gangwon"
+                    coords="224,303,239,334,259,365,272,382,281,405,243,408,216,399,191,397,193,372,178,364,180,348,157,325,214,316"
+                    shape="poly">
+                <area target="" alt="gyunggi-1" title="gyunggi-1" href="../bury?area=gyunggi"
+                    coords="141,380,138,372,131,364,122,357,114,355,110,362,117,371,131,381,134,390,139,401,137,408,144,414,159,415,168,413,176,410,187,404,191,397,157,382,149,381,147,383"
+                    shape="poly">
+                <area target="" alt="gyunggi-2" title="gyunggi-2" href="../bury?area=gyunggi"
+                    coords="140,368,128,356,154,325,192,372,191,397,161,383,155,363" shape="poly">
+            </map>
+        </div>
+        <script>
+            $(document).ready(function (e) {
+                $('img[usemap]').rwdImageMaps();
+            });
+        </script>
+</body>
+
+</html>

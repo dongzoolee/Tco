@@ -1,0 +1,311 @@
+server has started
+CLEARED SESSION
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:771:10)
+    at ServerResponse.send (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:170:12)
+    at done (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:1008:10)
+    at tryHandleCache (/home/ubuntu/docker/html/capsule/node_modules/ejs/lib/ejs.js:278:5)
+    at View.exports.renderFile [as engine] (/home/ubuntu/docker/html/capsule/node_modules/ejs/lib/ejs.js:489:10)
+    at View.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/view.js:135:8)
+    at tryRender (/home/ubuntu/docker/html/capsule/node_modules/express/lib/application.js:640:10)
+    at Function.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/application.js:592:3)
+    at ServerResponse.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:1012:7)
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+/home/ubuntu/docker/html/capsule/app.js:243
+                        f_len: files.length,
+                                     ^
+
+TypeError: Cannot read property 'length' of undefined
+    at fs.readdir (/home/ubuntu/docker/html/capsule/app.js:243:38)
+    at FSReqWrap.args [as oncomplete] (fs.js:140:20)
+server has started
+CLEARED SESSION
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+TypeError: Cannot read property 'id' of undefined
+    at app.use (/home/ubuntu/docker/html/capsule/app.js:217:101)
+    at Layer.handle [as handle_request] (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:275:10)
+    at urlencodedParser (/home/ubuntu/docker/html/capsule/node_modules/body-parser/lib/types/urlencoded.js:91:7)
+    at Layer.handle [as handle_request] (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:284:7
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::1919
+    at Server.setupListenHandle [as _listen2] (net.js:1280:14)
+    at listenInCluster (net.js:1328:12)
+    at Server.listen (net.js:1415:7)
+    at Object.<anonymous> (/home/ubuntu/docker/html/capsule/app.js:52:50)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+Emitted 'error' event at:
+    at emitErrorNT (net.js:1307:8)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:834:11)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+server has started
+CLEARED SESSION
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:771:10)
+    at ServerResponse.send (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:170:12)
+    at done (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:1008:10)
+    at tryHandleCache (/home/ubuntu/docker/html/capsule/node_modules/ejs/lib/ejs.js:278:5)
+    at View.exports.renderFile [as engine] (/home/ubuntu/docker/html/capsule/node_modules/ejs/lib/ejs.js:489:10)
+    at View.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/view.js:135:8)
+    at tryRender (/home/ubuntu/docker/html/capsule/node_modules/express/lib/application.js:640:10)
+    at Function.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/application.js:592:3)
+    at ServerResponse.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:1012:7)
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:771:10)
+    at ServerResponse.send (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:170:12)
+    at done (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:1008:10)
+    at tryHandleCache (/home/ubuntu/docker/html/capsule/node_modules/ejs/lib/ejs.js:278:5)
+    at View.exports.renderFile [as engine] (/home/ubuntu/docker/html/capsule/node_modules/ejs/lib/ejs.js:489:10)
+    at View.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/view.js:135:8)
+    at tryRender (/home/ubuntu/docker/html/capsule/node_modules/express/lib/application.js:640:10)
+    at Function.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/application.js:592:3)
+    at ServerResponse.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:1012:7)
+{ id: '1554369294',
+  name: '강효규',
+  mail: 'rkdgyrb321@naver.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/lPPXD/btqNXp5xbPc/X4xgMTcMgkdVMykJeu0Hyk/img_640x640.jpg' }
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+[]
+TypeError: Cannot read property 'id' of undefined
+    at app.use (/home/ubuntu/docker/html/capsule/app.js:163:101)
+    at Layer.handle [as handle_request] (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:275:10)
+    at urlencodedParser (/home/ubuntu/docker/html/capsule/node_modules/body-parser/lib/types/urlencoded.js:91:7)
+    at Layer.handle [as handle_request] (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:284:7
+{ id: '1554439128',
+  name: '박건',
+  mail: 'undefined',
+  imgurl: 'undefined' }
+[]
+{ links: '', date: '2021-03-10' }
+/home/ubuntu/docker/html/capsule/app.js:171
+                var link_cnt = result[0].ytb_links.split(';').length - 1;
+                                                   ^
+
+TypeError: Cannot read property 'split' of null
+    at Query.connection.query [as onResult] (/home/ubuntu/docker/html/capsule/app.js:171:52)
+    at process.nextTick (/home/ubuntu/docker/html/capsule/node_modules/mysql2/lib/commands/query.js:72:16)
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+server has started
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+{ id: '1554368161',
+  name: '신동준',
+  mail: 'undefined',
+  imgurl:
+   'http://k.kakaocdn.net/dn/M6Pnd/btqNU1ktSbP/4oDzk8DsKtKm4cjM5KKyoK/img_640x640.jpg' }
+{ id: '1554368161',
+  name: '신동준',
+  mail: 'undefined',
+  imgurl:
+   'http://k.kakaocdn.net/dn/M6Pnd/btqNU1ktSbP/4oDzk8DsKtKm4cjM5KKyoK/img_640x640.jpg' }
+TypeError: Cannot read property 'id' of undefined
+    at app.use (/home/ubuntu/docker/html/capsule/app.js:81:99)
+    at Layer.handle [as handle_request] (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:275:10)
+    at /home/ubuntu/docker/html/capsule/app.js:33:5
+    at Layer.handle [as handle_request] (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/docker/html/capsule/node_modules/express/lib/router/index.js:284:7
+{ id: '1554368161',
+  name: '신동준',
+  mail: 'undefined',
+  imgurl:
+   'http://k.kakaocdn.net/dn/M6Pnd/btqNU1ktSbP/4oDzk8DsKtKm4cjM5KKyoK/img_640x640.jpg' }
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::1919
+    at Server.setupListenHandle [as _listen2] (net.js:1280:14)
+    at listenInCluster (net.js:1328:12)
+    at Server.listen (net.js:1415:7)
+    at Object.<anonymous> (/home/ubuntu/docker/html/capsule/app.js:52:50)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+Emitted 'error' event at:
+    at emitErrorNT (net.js:1307:8)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:834:11)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+server has started
+CLEARED SESSION
+{ id: '1554368161',
+  name: '신동준',
+  mail: 'undefined',
+  imgurl:
+   'http://k.kakaocdn.net/dn/M6Pnd/btqNU1ktSbP/4oDzk8DsKtKm4cjM5KKyoK/img_640x640.jpg' }
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+{ id: '1566938925',
+  name: '이민희',
+  mail: 'undefined',
+  imgurl:
+   'http://k.kakaocdn.net/dn/xiS8A/btqQIVHvAvs/CtYimA3wVgBEPXs5w04a40/img_640x640.jpg' }
+[ { fieldname: 'img',
+    originalname: 'KakaoTalk_20201120_031852394_17.jpg',
+    encoding: '7bit',
+    mimetype: 'image/jpeg',
+    destination: 'tmpImg/1566938925',
+    filename: 'KakaoTalk_20201120_031852394_17.jpg',
+    path: 'tmpImg/1566938925/KakaoTalk_20201120_031852394_17.jpg',
+    size: 3422875 } ]
+{ links: '', date: '2022-02-12' }
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:771:10)
+    at ServerResponse.send (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:170:12)
+    at done (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:1008:10)
+    at tryHandleCache (/home/ubuntu/docker/html/capsule/node_modules/ejs/lib/ejs.js:278:5)
+    at View.exports.renderFile [as engine] (/home/ubuntu/docker/html/capsule/node_modules/ejs/lib/ejs.js:489:10)
+    at View.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/view.js:135:8)
+    at tryRender (/home/ubuntu/docker/html/capsule/node_modules/express/lib/application.js:640:10)
+    at Function.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/application.js:592:3)
+    at ServerResponse.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:1012:7)
+{ id: '1554368161',
+  name: '신동준',
+  mail: 'undefined',
+  imgurl:
+   'http://k.kakaocdn.net/dn/M6Pnd/btqNU1ktSbP/4oDzk8DsKtKm4cjM5KKyoK/img_640x640.jpg' }
+{ id: '1554439128',
+  name: '박건',
+  mail: 'undefined',
+  imgurl: 'undefined' }
+[]
+[ { fieldname: 'img',
+    originalname: '서강대학교 야경.png',
+    encoding: '7bit',
+    mimetype: 'image/png',
+    destination: 'tmpImg/1554439128',
+    filename: '서강대학교 야경.png',
+    path: 'tmpImg/1554439128/서강대학교 야경.png',
+    size: 749492 } ]
+{ links:
+   'https://www.youtube.com/watch?v=QiFT5rx7IRU&ab_channel=%EC%84%9C%EA%B0%95%EB%8C%80%ED%95%99%EA%B5%90SogangUniversity',
+  date: '2020-12-31' }
+{ id: '1554368161',
+  name: '신동준',
+  mail: 'undefined',
+  imgurl:
+   'http://k.kakaocdn.net/dn/M6Pnd/btqNU1ktSbP/4oDzk8DsKtKm4cjM5KKyoK/img_640x640.jpg' }
+{ id: '1567020267',
+  name: '김서인',
+  mail: 'undefined',
+  imgurl:
+   'http://k.kakaocdn.net/dn/VdRY9/btqQjnTnCkr/vDxdZIvm9K0rX5b9dH1Bb0/img_640x640.jpg' }
+{ id: '1554369294',
+  name: '강효규',
+  mail: 'rkdgyrb321@naver.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/lPPXD/btqNXp5xbPc/X4xgMTcMgkdVMykJeu0Hyk/img_640x640.jpg' }
+{ id: '1554368161',
+  name: '신동준',
+  mail: 'undefined',
+  imgurl:
+   'http://k.kakaocdn.net/dn/M6Pnd/btqNU1ktSbP/4oDzk8DsKtKm4cjM5KKyoK/img_640x640.jpg' }
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:771:10)
+    at ServerResponse.send (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:170:12)
+    at done (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:1008:10)
+    at tryHandleCache (/home/ubuntu/docker/html/capsule/node_modules/ejs/lib/ejs.js:278:5)
+    at View.exports.renderFile [as engine] (/home/ubuntu/docker/html/capsule/node_modules/ejs/lib/ejs.js:489:10)
+    at View.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/view.js:135:8)
+    at tryRender (/home/ubuntu/docker/html/capsule/node_modules/express/lib/application.js:640:10)
+    at Function.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/application.js:592:3)
+    at ServerResponse.render (/home/ubuntu/docker/html/capsule/node_modules/express/lib/response.js:1012:7)
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }
+{ id: '1553958761',
+  name: '동주',
+  mail: 'nant0313@gmail.com',
+  imgurl:
+   'http://k.kakaocdn.net/dn/cgH56q/btqN5ggZADs/wTYcjYkN0GdDQi6DB8j14k/img_640x640.jpg' }

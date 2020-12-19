@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT</title>
+    <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/segoe-fonts@1.0.1/segoe-fonts.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.css" rel="stylesheet">
+    <link href="views/css/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "segoeuib", Arial, sans-serif !important;
+        }
+
+        #container .head {
+            font-family: "appleNeoT";
+            font-size: 80px;
+        }
+
+        #container .head span {
+            font-size: 100px;
+        }
+
+        body {
+            font-family: "appleNeoB";
+        }
+
+        .w3-bar-block .w3-bar-item {
+            padding: 16px;
+            font-weight: bold;
+        }
+
+        .intro_img {
+            border: 1px solid grey;
+            display: block;
+            width: 50vw;
+        }
+
+        @media screen and (max-width: 993px) {
+            #content {
+                margin-left: unset !important;
+            }
+
+            .intro_img {
+                width: 100%;
+            }
+
+            .w3-xxxlarge {
+                font-size: 5vw !important;
+            }
+        }
+
+        .w3-theme {
+            color: #fff !important;
+            background-color: #606060 !important;
+        }
+
+        .w3-teal,
+        .w3-hover-teal:hover {
+            color: #fff !important;
+            background-color: #606060 !important;
+        }
+
+        .w3-main {
+            border: 1px solid grey;
+        }
+
+        .w3-sidebar {
+            /* position: absolute; */
+            height: auto;
+        }
+
+        #absolute_bar {
+            position: absolute !important;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include ("../header/header.ejs") %>
+
+        <div class="w3-main" style="margin:0px 10%;">
+
+            <header class="w3-container w3-theme" style="padding:32px 32px">
+                <h1 class="w3-xxxlarge" style="font-weight: 650; padding: 16px;">TCO : TimeCapsule Corona</h1>
+            </header>
+
+            <div class="w3-container" style="padding:32px">
+
+                <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card"
+                    style="z-index:3;width:250px;margin-top: 32px;" id="mySidebar">
+                    <!-- <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="../" style="text-align: center;"><img
+                        src="../views/img/tco-2.png" style="width:60%;"></a> -->
+
+                    <a class="w3-bar-item w3-button w3-teal" href="#" onclick="colorChange(this)">Home</a>
+                    <a class="w3-bar-item w3-button" href="#intro" onclick="colorChange(this)">Introduction</a>
+                    <a class="w3-bar-item w3-button" href="#how" onclick="colorChange(this)">How To Use</a>
+                    <a class="w3-bar-item w3-button" href="#dev" onclick="colorChange(this)">Developers</a>
+                </nav>
+
+                <div id="content" style="margin-left: 300px;">
+                    <h2 id="intro">Introduction</h2>
+                    <p>
+                        코로나로 우울한 당신, 오늘 하루는 행복했던 추억을 되돌아보는 것은 어떨까요?<br>
+                        코로나가 끝났을 때 활짝 웃을 수 있는 추억을 공유해주세요!<br><br>
+
+                        집에만 있는데 무슨 추억이 있냐고 걱정할 필요는 없습니다!<br>
+                        코로나 시대의 라이프스타일에 맞추어 추억 또한 <strong>온라인</strong>으로 즐길 수 있습니다.<br>
+                        다음과 같은 것들을 타임캡슐로 만들어보세요!<br>
+                    <ul class="w3-leftbar w3-theme-border" style="list-style:none">
+                        <li>Youtube 동영상</li>
+                        <li>가족과의 소중한 추억을 담은 사진</li>
+                    </ul>
+                    타임캡슐하면 역시 학교죠?<br>
+                    추억을 묻을 학교를 골라 여러분들의 소중한 추억을 묻어주세요.<br><br>
+
+                    코로나가 끝났을 때, 오늘날에는 그저 우울하고 암울했던 기억만이 아닌 행복했던 추억 또한 존재했다는 것을 되돌아볼 수 있기를 바랍니다.<br>
+                    힘든 시간을 보내고 타임캡슐을 열어 보았을 때 모든 것을 털어놓고 다시 행복하게 지낼 수 있도록 간절히 소망합니다.<br>
+                    </p>
+
+                    <hr>
+                    <h2 id="how">How To Use</h2>
+
+                    <h4>타임캡슐 현황</h4>
+                    <p>
+                        메인 페이지에서는 사용자들이 묻어놓은 타임캡슐을 확인할 수 있습니다.<br>
+                        아이콘을 클릭하여 학교의 이름을 확인할 수 있습니다.<br>
+                        <img src="../views/img/intro_main.png" class="intro_img" alt="main"><br><br>
+
+                    </p>
+
+                    <h4>타임캡슐 만들기</h4>
+                    <p>
+                        타임캡슐을 만들어봅시다.<br>
+                        타임캡슐을 만들기 위해서는 5가지 과정이 필요합니다.<br><br>
+
+                        1. 사진 선택하기<br>
+                        최대 5MB, 5개의 사진을 선택할 수 있습니다.<br>
+                        <img src="../views/img/intro_picture.png" class="intro_img" alt="picture"><br>
+
+                        2. 동영상 선택하기<br>
+                        Youtube 링크를 이용하여 동영상을 업로드 할 수 있습니다.<br>
+                        <img src="../views/img/intro_youtube.png" class="intro_img" alt="video"><br>
+
+                        3. 코로나 D-Day 선택하기<br>
+                        코로나가 끝날 날을 예측해보세요.
+                        <img src="../views/img/intro_calendar.png" class="intro_img" alt="D-Day"><br>
+
+                        4. 지역 선택하기<br>
+                        타임 캡슐을 묻을 학교가 있는 지역을 선택해주세요.
+                        <img src="../views/img/intro_area.png" class="intro_img" alt="area"><br>
+
+                        5. 타입캡슐을 묻을 학교 선택하기<br>
+                        선택한 지역에 있는 고등학교를 타임캡슐을 묻을 장소로 선택할 수 있습니다.<br>
+                        <img src="../views/img/intro_bury.png" class="intro_img" alt="school"><br><br>
+                    </p>
+
+                    <h4>마이캡슐</h4>
+                    <p>
+                        자신이 묻은 타임캡슐에 대한 대략적인 정보와 자신이 예측한 코로나 D-Day를 확인할 수 있습니다<br>
+                        <img src="../views/img/intro_my_capsule.png" class="intro_img" alt="my_capsule"><br><br>
+                    </p>
+
+                    <h4>포스트코로나</h4>
+                    <p>
+                        코로나가 끝난 후에는 자신이 만든 타임캡슐을 확인할 수 있습니다.<br>
+                        <img src="../views/img/intro_post_corona.png" class="intro_img" alt="post_corona"><br><br>
+                    </p>
+
+                    <hr>
+                    <h2 id="dev">Developers</h2>
+                    <div class="w3-container w3-sand w3-leftbar">
+                        <p>Sogang ICPC Team & Team Release  @서강대학교 김대건관</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <footer class="w3-container w3-theme" style="padding:32px">
+                <p>Team 주거니박거니</p>
+            </footer>
+
+        </div>
+
+        <script>
+
+            window.onload = function () {
+                if ($("#mySidebar").offset().top > document.documentElement.scrollTop + 32) {
+                    document.getElementById("mySidebar").setAttribute("id", "absolute_bar");
+                }
+            }
+
+            window.onscroll = function () { scrollFunction() };
+
+            function scrollFunction() {
+                if ($("#absolute_bar").offset() !== undefined) {
+                    if ($("#absolute_bar").offset().top <= document.documentElement.scrollTop + 32) {
+                        document.getElementById("absolute_bar").setAttribute("id", "mySidebar");
+                        document.getElementById("mySidebar").style.top = "32px";
+                    }
+                }
+                if ($("#mySidebar").offset() !== undefined && 323 > document.documentElement.scrollTop + 32) {
+                    document.getElementById("mySidebar").setAttribute("id", "absolute_bar");
+                    document.getElementById("absolute_bar").style.top = "";
+                }
+            }
+
+            function colorChange(button) {
+                var buttons = document.getElementsByClassName('w3-button');
+
+                for (var i = 0; i < buttons.length; i++) {
+                    buttons[i].setAttribute('class', 'w3-bar-item w3-button');
+                }
+                button.setAttribute('class', 'w3-bar-item w3-button w3-teal');
+            }
+
+        </script>
+</body>
+
+</html>
