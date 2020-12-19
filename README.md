@@ -1,4 +1,4 @@
-# TimeCapsuleCorona
+# TimeCapsuleCOrona
 ## 0. 후기
 시험기간입니다. 누가 프로젝트를 이상한 데에서 받아와서 시작했습니다.
 
@@ -11,4 +11,4 @@
 ## 1. 개발 후기
 
 ## 2. check out at
-https://cap.leed.at
+https://tco.leed.at
