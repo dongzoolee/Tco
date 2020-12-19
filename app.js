@@ -1,6 +1,7 @@
 var express = require('express')
 var app = express();
 var fs = require('fs');
+const fsExtra = require('fs-extra')
 var https = require('https');
 var static = require('serve-static');
 var path = require('path')
@@ -74,16 +75,24 @@ var upload = multer({
 
 app.use('/make', (req, res) => {
     if (!req.session.user) res.redirect('/login')
-
-    req.session.data = {};
-    req.session.upload = [];
-    connection.query('SELECT EXISTS (SELECT * FROM capsule WHERE id=?) AS bul', [req.session.user.id], (err, result, field) => {
-        if (result[0].bul) {
-            res.render('main/yescap.ejs')
-        } else {
-            res.render('main/make.ejs')
-        }
-    })
+    else {
+        if (fs.stat('tmpImg/' + req.session.user.id, (err) => {
+            if (err) {// 존재x
+                fs.mkdirSync('tmpImg/' + req.body.id);
+            } else {
+                fsExtra.emptyDirSync('tmpImg/' + req.session.user.id)
+            }
+        }));
+        req.session.data = {};
+        req.session.upload = [];
+        connection.query('SELECT EXISTS (SELECT * FROM capsule WHERE id=?) AS bul', [req.session.user.id], (err, result, field) => {
+            if (result[0].bul) {
+                res.render('main/yescap.ejs')
+            } else {
+                res.render('main/make.ejs')
+            }
+        })
+    }
 })
 app.use(body.json());
 app.use(body.urlencoded({ extended: true }));
@@ -280,7 +289,7 @@ app.use('/postcorona', (req, res) => {
 })
 app.use('/easteregg', (req, res) => {
     if (!req.session.user) res.redirect('/login')
-    else if(!req.body){
+    else if (!req.body) {
         res.redirect('/')
     }
     else {
