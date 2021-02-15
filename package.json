@@ -1,0 +1,31 @@
+{
+  "name": "capsule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fullcalendar/core": "^5.4.0",
+    "@fullcalendar/daygrid": "^5.4.0",
+    "body-parser": "^1.19.0",
+    "busboy-body-parser": "^0.3.2",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-mysql-session": "^2.1.4",
+    "express-session": "^1.17.1",
+    "forever": "^3.0.4",
+    "fs": "0.0.1-security",
+    "fs-extra": "^9.0.1",
+    "https": "^1.0.0",
+    "multer": "^1.4.2",
+    "mv": "^2.1.1",
+    "mysql2": "^2.2.5",
+    "path": "^0.12.7",
+    "serve-static": "^1.14.1"
+  }
+}
