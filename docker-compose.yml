@@ -1,0 +1,12 @@
+version: "3.2"
+
+services:
+  tco:
+    container_name: tco
+    image: tco
+    restart: always
+    ports:
+      - "1919:1919"
+    volumes:
+      - /home/ubuntu/docker_tco/tmpImg:/home/ubuntu/node/tmpImg
+      - /home/ubuntu/docker_tco/uploads:/home/ubuntu/node/uploads
