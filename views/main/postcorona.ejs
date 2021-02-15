@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="views/js/swiper.min.js "></script>
+    <link href="https://cdn.jsdelivr.net/npm/segoe-fonts@1.0.1/segoe-fonts.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="views/css/font.css" rel="stylesheet">
+    <link href="views/css/bury_kakao.css" rel="stylesheet">
+    <link href="views/css/swiper.min.css" rel="stylesheet">
+    <style>
+        #wrapper {
+            width: 100%;
+            height: auto;
+            text-align: center;
+        }
+
+        #head {
+            margin-top: 110px;
+        }
+
+        #head .big {
+            font-family: "appleNeoB";
+            font-size: 43px;
+            color: #707070;
+        }
+
+        #head .small {
+            font-family: "appleNeoR";
+            font-size: 20px;
+            color: #707070;
+        }
+
+        #images_cont {
+            margin-top: 50px;
+            width: 100%;
+        }
+        #images_cont .images{
+            margin-top:40px;
+        }
+        #blinks_cont{
+            margin-top: 120px;
+        }
+        #links_cont {
+            margin: 120px auto 0 auto;
+            width: 1000px;
+        }
+
+        .text {
+            font-family: "appleNeoT";
+            font-size: 43px;
+            color: #707070;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 430px;
+        }
+
+        .swiper-slide {
+            width: 80%;
+            height: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        <% for(var i=0; i < img.length; i++) {
+            %>.ss<%=i %> {
+                background-color: white;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size:contain;
+            }
+
+            <%
+        }
+
+        %>.swiper-pagination {
+            position: relative;
+            top: 0;
+        }
+
+        .swiper-pagination-bullet {
+            margin: 0 13px;
+            border-radius: 0;
+            width: 9px;
+            height: 4px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: green;
+        }
+
+        .swiper-button-prev {
+            left: 50px;
+            --swiper-navigation-size: 30px;
+        }
+
+        .swiper-button-next {
+            right: 50px;
+            --swiper-navigation-size: 30px;
+        }
+        iframe{
+            display:block;
+            width:1000px;
+            height:562px;
+
+            margin-top:50px;
+        }
+        iframe:first-child{
+            margin-top:0;
+        }
+        #links_cont .link{
+            margin: 0 auto;
+            width: 1000px;
+        }
+        @media(max-width:1012px) {
+            .swiper-container{
+                height:80vw;
+            }
+            .big{
+                font-size:6vw !important;
+            }
+            .small{
+                font-size:3.3vw !important;
+            }
+            .text{  
+                font-size: 7vw !important;
+            }
+            #images_cont .images{
+                margin-top:unset;
+            }
+            #links_cont{
+                width:100%;
+            }
+            
+            #links_cont .links{
+                margin: 9vw 0 0 0;
+            }
+            iframe{
+                margin-top: 8vw;
+
+                width:100%;
+                height:63vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include ("../header/header.ejs") %>
+        <div id="wrapper">
+            <div id="head">
+                <span class="big">드디어 코로나가 종식되었습니다!</span><br>
+                <span class="small">정말 수고하셨습니다. <b><%= loc %></b>에 묻혀있는 추억들을 확인해보세요</span>
+            </div>
+            <div id="images_cont">
+                <div class="text">나의 사진들</div>
+                <div class="images">
+                    <div class="swiper-container swiper1">
+                        <!--클래스 이름이 두개인거임ㅋㅋ-->
+                        <div class="swiper-wrapper">
+                            <% for(var i=0; i < img.length; i++){ %>
+                                <div class="swiper-slide ss<%= i %>">
+                                    <img style="height: 100%;" src="../userimg/<%= id %>/<%= img[i] %>">
+                                </div>
+                            <% } %>
+                        </div>
+                        <!--이전 페이지-->
+                        <div class="swiper-button-prev"></div>
+                        <!--다음 페이지-->
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    <!--페이지순서 - type-->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <div id="links_cont">
+                <div class="text">나의 YouTube 동영상들</div>
+                <div class="links">
+                    <% for(var i = 0; i < links.length; i++) { %>
+                    <iframe width="1730" height="721" src="https://www.youtube.com/embed/<%= links[i] %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <% } %>
+                </div>
+            </div>
+            <div id="blinks_cont">
+                <div class="text">기타 동영상 링크</div>
+                <div class="links">
+                    <% for(var i = 0; i < non_link.length; i++) { %>
+                        <a href="<%= non_link[i] %>"><div class="blinks"><%= non_link[i] %></div></a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    var swiper = new Swiper('.swiper1', {
+        on: {
+            slideChange: function () {
+                curPage = this.realIndex;
+                //pagechange event
+            }
+        },
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            /*renderBullet: function (index, className) {
+      return '<span class="' + className + '">' + (menu[index]) + '</span>';*/
+        },
+        navigation: {
+            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next',
+        },
+        scrollbar: {
+            el: '.swiper-scrollbar',
+            //draggable:true, 
+            // IF true -> autoplay false
+            hide: true,
+        },
+        keyboard: {
+            enabled: true,
+        },
+        // mousewheel: {
+        //     invert: false,
+        // },
+        centeredSlides: true,
+        initialSlide: 0,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        effect: 'fade',
+        fadeEffect: {
+
+        },
+        // 둘다 있어야 fade 적용됨 . . .
+        //slidesPerView: 3,
+        /*effect:'coverflow',
+        coverflowEffect:{
+            rotate: 0,
+            //stretch: 50,
+            depth: 250,
+            modifier: 1,
+            slideShadows : false,
+        }*/
+        //slidesPerView: 3, // 보여지는 슬라이드 수
+        //spaceBetween: 0,
+    });
+</script>
+
+</html>

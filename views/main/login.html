@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <link href="views/css/font.css" rel="stylesheet">
+
+    <style>
+        html{
+            width:100%;height:100%;
+        }
+        body {
+            position: absolute;
+            margin: 0;
+            width:100%;height:100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #wrapper {
+            width: 1220px;
+            margin: 245px auto 0 auto;
+        }
+
+        #logo_wrapper {
+            width: 110px;
+            height: 110px;
+            /* border:1px solid #707070; */
+            border-radius: 50%;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        #logo {
+            width: 165px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #logo img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #info {
+            font-family: "KoPubDotumLight";
+            text-align: center;
+        }
+
+        #info div:first-child {
+            font-size: 33px;
+        }
+
+        #info div:nth-child(2) {
+            margin-top: 2px;
+            font-size: 26px;
+        }
+
+        .k_img {
+            width: 350px;
+            margin: 20px auto 0 auto;
+        }
+
+        .k_img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #freepik {
+            font-family: "KoPubDotumLight";
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media(max-width: 1012px) {
+            #wrapper {
+                width: 100%;
+                margin: 37vw auto 0 auto;
+            }
+
+            #logo_wrapper {
+                width: 20vw;
+                height: 20vw;
+            }
+
+            #logo {
+                width: 26vw;
+            }
+
+            #info div:first-child {
+                font-size: 5.5vw;
+            }
+
+            #info div:nth-child(2) {
+                font-size: 4vw;
+                margin-top: 2px;
+            }
+
+            .k_img {
+                width: 72vw;
+                margin: 27vw auto 0 auto;
+            }
+            #freepik {
+                font-family: "KoPubDotumLight";
+                font-size: 2.7vw;
+                width: 100%;
+                position: absolute;
+                bottom: 1vw;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form id="data" method="post" action="../chkuser" style="display:none;"></form>
+    <div id="wrapper">
+        <div id="logo_wrapper">
+            <div id="logo">
+                <img src="https://tco.leed.at/views/img/tco-2.png">
+            </div>
+        </div>
+        <div id="info">
+            <div>코로나로 우울한 당신</div>
+            <div>오늘 하루는 행복했던 추억을 되돌아보는 것은 어떨까요?</div>
+        </div>
+        <div class="k_img" onclick="loginKakao()">
+            <img src="../views/img/loginK-1.png" draggable="false">
+        </div>
+    </div>
+    <div style="display:none;" onclick="unlinkKakao()">연결끊기</div>
+    <a href="https://leed.at/">
+        <div id="freepik">Sogang ICPC Team && Team Release</div>
+    </a>
+    <script>
+        //Kakao
+        Kakao.init('6bf5da4f4aa6ffcb7dd01568d9d6092d');
+        console.log('kakaoLogin : ' + Kakao.isInitialized());
+        function unlinkKakao() {
+            Kakao.API.request({
+                url: '/v1/user/unlink',
+                success: function (response) {
+                    console.log(response);
+                },
+                fail: function (error) {
+                    console.log(error);
+                },
+            });
+        }
+        function loginKakao() {
+            Kakao.Auth.login({
+                // scope: 'account_email profile ',
+                success: function (response) {
+                    //console.log(response);
+                    getKakao();
+                },
+                fail: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+        function logoutKakao() {
+            if (!Kakao.Auth.getAccessToken()) {
+                return console.log('Not logged in.');
+            }
+            Kakao.Auth.logout(function () {
+                console.log('logged out successfully');
+            });
+        }
+        function getKakao() {
+            Kakao.API.request({
+                url: '/v2/user/me',
+                data: {
+                    property_keys: [
+                        "properties.profile_image",
+                        "kakao_account.email",
+                        "properties.nickname"
+                    ]
+                },
+                success: function (res) {
+                    var inp1 = document.createElement('input');
+                    var inp2 = document.createElement('input');
+                    var inp3 = document.createElement('input');
+                    var inp4 = document.createElement('input');
+                    inp1.type = 'text';
+                    inp2.type = 'text';
+                    inp3.type = 'text';
+                    inp4.type = 'text';
+                    inp1.name = 'id';
+                    inp2.name = 'name';
+                    inp3.name = 'mail';
+                    inp4.name = 'imgurl';
+                    inp1.value = res.id;
+                    inp2.value = res.properties.nickname;
+                    inp3.value = res.kakao_account.email;
+                    inp4.value = res.properties.profile_image;
+                    document.getElementById('data').appendChild(inp1);
+                    document.getElementById('data').appendChild(inp2);
+                    document.getElementById('data').appendChild(inp3);
+                    document.getElementById('data').appendChild(inp4);
+                    document.getElementById('data').submit();
+                },
+                fail: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+
+<link id="header_link" href="views/css/header.css" rel="stylesheet">
+
+<div id="header">
+    <a href="/"><div id="cap"><img src="../views/img/tco-2.png"></div></a>
+    <a href="../about"><div class="about">소개</div></a>
+    <a href="../make"><div class="make">타임캡슐 만들기</div></a>
+    <a href="../mycap"><div class="check">마이캡슐</div></a>
+    <a href="../logout"><div class="logout">로그아웃</div></a>
+    <a href="#"><div class="post_corona" onclick="beta()">
+        <span>포스트코로나</span>
+        <div id="post_corona_window" class="hide">
+            <span>코로나가 끝나면 공개됩니다!</span>
+        </div>
+        <div id="post_corona_window_mob" class="hide">
+            <span>코로나가 끝나면 공개됩니다!</span>
+        </div>
+    </div></a>
+</div>
+<script>
+     $('.post_corona').on('mouseover mouseout',()=>{
+        $('#post_corona_window').toggleClass('hide');
+        $('#post_corona_window').toggleClass('show');
+    })
+    $('.post_corona').on('click',()=>{
+        $('#post_corona_window_mob').toggleClass('hide');
+        $('#post_corona_window_mob').toggleClass('show');
+    })
+    function beta(){
+        if(confirm('코로나가 아직 종식되지 않아 베타 서비스로 운영되고 있습니다.\n계속하시겠습니까?')){
+            location.href="../postcorona";
+        }
+    }
+</script>

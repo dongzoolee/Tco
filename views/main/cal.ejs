@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dday</title>
+    <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/segoe-fonts@1.0.1/segoe-fonts.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.css" rel="stylesheet">
+    <link href="views/css/font.css" rel="stylesheet">
+    <style>
+        #content {
+            position: relative;
+            max-width: 1600px;
+            height: 765px;
+            margin: 48px auto 0 auto;
+        }
+
+        #text {
+            width: 100%;
+            color: #707070;
+            text-align: center;
+        }
+
+        #text .head {
+            font-family: "appleNeoB" !important;
+            color: #707070;
+            font-size: 43px;
+        }
+
+        #text #date_dday {
+            width: 100%;
+            margin-top: 10px;
+            padding: 13px 0;
+            border-top: 1px solid #707070;
+            border-bottom: 1px solid #707070;
+        }
+
+        #text .dday {
+            display: inline-block;
+            font-family: "appleNeoL" !important;
+            font-size: 32px;
+        }
+
+        #text .date {
+            display: inline-block;
+            font-family: "appleNeoB" !important;
+            font-size: 32px;
+            margin-left: 74px;
+        }
+
+        #cal {
+            width: 978px;
+            height: 637px;
+            margin: 29px auto 0 auto;
+        }
+
+        #go_next_all {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-88%);
+            cursor: pointer;
+        }
+
+        #go_next_all span {
+            color: #707070;
+            font-size: 22px;
+        }
+
+        #go_next {
+            width: 38px;
+        }
+
+        #go_next img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #go_next span {
+            font-family: "NanumSquare";
+        }
+
+        @media (max-width:1012px) {
+            #content {
+                height: calc(100% - 12vw);
+            }
+
+            #content #text .head {
+                font-size: 6vw;
+            }
+
+            #content #text #date_dday .dday {
+                font-size: 4vw;
+
+            }
+
+            #content #text #date_dday .date {
+                font-size: 4vw;
+                margin-left: unset;
+            }
+
+            #cal {
+                width: 80%;
+                height: calc(100%);
+                margin: 29px auto 0 auto;
+            }
+
+            .fc .fc-daygrid-day-frame {
+                position: relative;
+                min-height: 96%;
+                height: 0vw;
+            }
+
+            #go_next_all {
+                box-shadow: 0 0 5px 1px silver;
+                position: fixed;
+                width: 100%;
+                background-color: white;
+                top: unset;
+                right: unset;
+                text-align: center;
+                /* left: 50%; */
+                bottom: 0;
+                transform: unset;
+                cursor: pointer;
+                z-index: 100000;
+            }
+
+            #go_next {
+                margin: 0 auto;
+                width: 6vw;
+            }
+        }
+
+        @media (max-width:500px) {
+            #content {
+                height: calc(100% - 12vw);
+            }
+
+            #content #text .head {
+                font-size: 6vw;
+            }
+
+            #content #text #date_dday .dday {
+                font-size: 4vw;
+
+            }
+
+            #content #text #date_dday .date {
+                font-size: 4vw;
+                margin-left: unset;
+            }
+
+            #cal {
+                width: 80%;
+                height: calc(100% - 60vw);
+                margin: 29px auto 0 auto;
+            }
+
+            .fc .fc-daygrid-day-frame {
+                position: relative;
+                min-height: 96%;
+                height: 0vw;
+            }
+
+            #go_next_all {
+                box-shadow: unset;
+                position: absolute;
+                /* right: 0; */
+                top: unset;
+                right: unset;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+                cursor: pointer;
+            }
+
+            #go_next {
+                width: 6vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include ("../header/header.ejs") %>
+        <form id="post" method="post" action="../hanbando">
+            <input id="date" type="text" name="date" style="display:none;">
+        </form>
+        <div id="content">
+            <div id="text">
+                <div class="head">코로나가 끝나는 날을 예측해보세요</div>
+                <div id="date_dday">
+                    <div class="dday"></div>
+                    <div class="date"></div>
+                </div>
+            </div>
+            <div id="cal"></div>
+            <div id="go_next_all">
+                <span>다음</span>
+                <div id="go_next">
+                    <img src="../views/img/arrow-1.png">
+                </div>
+            </div>
+        </div>
+        <script>
+            $('#go_next_all').click(() => {
+                if ($('#date').val()) {
+                    var arr = $('#date').val().split('-')
+                    alert(arr[0]+'년 '+arr[1]+'월 '+arr[2]+'일을 선택하셨습니다.')
+                    $('#post').submit();
+                } else {
+                    alert('날짜를 선택해주세요!')
+                }
+            })
+            document.addEventListener('DOMContentLoaded', function () {
+                var calendarEl = document.getElementById('cal');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    selectable: true,
+                    longPressDelay: 1,// ms
+                    select: function (info) {
+                        var sdt = new Date();
+                        var edt = new Date(info.startStr);
+                        var dateDiff = Math.ceil((edt.getTime() - sdt.getTime()) / (1000 * 3600 * 24));
+                        $('#date').val(info.startStr);
+                        $('#text .date').text('코로나 바이러스는 ' + info.startStr + '에 종식됩니다');
+                        $('#text .dday').text('D-Day ' + dateDiff);
+                    },
+                    headerToolbar: {
+                        start: 'title', // will normally be on the left. if RTL, will be on the right
+                        center: '',
+                        end: 'prev,next' // will normally be on the right. if RTL, will be on the left
+                    }
+                });
+                calendar.render();
+            });
+        </script>
+</body>
+
+</html>
