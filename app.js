@@ -249,7 +249,19 @@ app.use('/mycap', (req, res) => {
 
                             //파일 갯수세기
                             fs.readdir('/home/ubuntu/node/uploads/' + req.session.user.id + '/', (err, files) => {
-                                if (err) console.log(err)
+                                if (err) {
+                                    console.log(err)
+                                    res.render('main/mycap', {
+                                        session: req.session.user,
+                                        bury_date: bury_date,
+                                        link_cnt: link_cnt,
+                                        d_date: d_date,
+                                        sch_type: sch_type,
+                                        f_len: 0,
+                                        pub_priv: result[0].pub_priv,
+                                        arr: []
+                                    });
+                                }
                                 else {
                                     var arr = [];
                                     files.forEach(file => {
