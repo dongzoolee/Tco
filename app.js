@@ -1,26 +1,25 @@
-var express = require('express')
-var app = express();
-var fs = require('fs');
+const express = require('express')
+const app = express();
+const fs = require('fs');
 const fsExtra = require('fs-extra')
-var https = require('https');
-var static = require('serve-static');
-var path = require('path')
-var body = require('body-parser');
-var multer = require('multer');
-var mysql = require('mysql2');
-var db_config = require('./config/db_config.json');
-var session = require('express-session');
+const static = require('serve-static');
+const path = require('path')
+const body = require('body-parser');
+const multer = require('multer');
+const mysql = require('mysql2');
+const db_config = require('./config/db_config.json');
+const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
 const { json } = require('body-parser');
-var mySQLStore = require('express-mysql-session')(session);
-var mv = require('mv');
-var options = {
+const mySQLStore = require('express-mysql-session')(session);
+const mv = require('mv');
+const options = {
     host: db_config.host,
     user: db_config.user,
     password: db_config.pw,
     database: db_config.db
 };
-var sessionStore = new MySQLStore(options);
+const sessionStore = new MySQLStore(options);
 app.use(session({
     secret: 'anjdlqfurgkwl?',
     resave: false,
@@ -33,7 +32,7 @@ app.use(function (req, res, next) {
     res.locals.data = req.session.data;
     next();
 });
-var connection = mysql.createPool({
+let connection = mysql.createPool({
     host: db_config.host,
     user: db_config.user,
     password: db_config.pw,
@@ -48,7 +47,7 @@ connection.query('DELETE FROM sessions', (err, res, fields) => {
     else
         console.log('CLEARED SESSION');
 });
-var server = app.listen(1919, () => {
+const server = app.listen(1919, () => {
     console.log('server has started');
 })
 // 이거 있어야 html render 가능
@@ -57,7 +56,7 @@ app.engine('html', require('ejs').renderFile);
 app.use('/views', static(path.join(__dirname, '/views')));
 app.use('/userimg', static(path.join(__dirname, '/uploads')));
 //views는 render가 이용한다.
-var upload = multer({
+let upload = multer({
     storage: multer.diskStorage({
         destination: (req, file, cb) => {
             cb(null, '/home/ubuntu/node/tmpImg/' + req.session.user.id);
@@ -169,18 +168,18 @@ app.use('/bury', (req, res) => {
 app.use('/letsbury', (req, res) => {
     if (!req.session.user) res.redirect('/login')
     else {
-        var date = new Date();
+        let date = new Date();
         date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
 
         console.log(req.session.user.name + '(' + req.session.user.id + ') : /letsbury 데이터 :' + req.session.data);
         if (!req.session.data.links)
             req.session.data.links = "";
         else {
-            var lnks = "";
+            let lnks = "";
             if (typeof (req.session.data.links) == "string")
                 lnks = req.session.data.links + ';';
             else
-                for (var i = 0; i < req.session.data.links.length; i++) {
+                for (let i = 0; i < req.session.data.links.length; i++) {
                     if (req.session.data.links[i] != "")
                         lnks += req.session.data.links[i] + ';';
                 }
@@ -229,14 +228,14 @@ app.use('/mycap', (req, res) => {
                     connection.query('SELECT * FROM capsule WHERE id = ?', [req.session.user.id], (err, result, fields) => {
                         if (err) console.log(err)
                         else {
-                            var bury_date = result[0].bury_date.split('-')
-                            var link_cnt;
+                            let bury_date = result[0].bury_date.split('-')
+                            let link_cnt;
                             if (result[0].ytb_links)
                                 link_cnt = result[0].ytb_links.split(';').length - 1;
                             else
                                 link_cnt = 0;
-                            var d_date = result[0].d_date.split('-');
-                            var sch_type;
+                            let d_date = result[0].d_date.split('-');
+                            let sch_type;
                             if (result[0].loc.indexOf('초등학교') != -1) {
                                 sch_type = "초등학교"
                             } else if (result[0].loc.indexOf('중학교') != -1) {
@@ -263,7 +262,7 @@ app.use('/mycap', (req, res) => {
                                     });
                                 }
                                 else {
-                                    var arr = [];
+                                    let arr = [];
                                     files.forEach(file => {
                                         arr.push(file);
                                     });
@@ -287,7 +286,7 @@ app.use('/mycap', (req, res) => {
     }
 })
 app.post('/updatePubPriv', (req, res) => {
-    var pub_priv = 0;
+    let pub_priv = 0;
     if (req.body.stat == 'on') {
         pub_priv = 0;
     } else {
@@ -308,10 +307,10 @@ app.use('/postcorona', (req, res) => {
                     console.log(req.session.user.name + '(' + req.session.user.id + ') : 포스트코로나 페이지 접속(캡슐없음)')
                     res.render('main/nocab.ejs')
                 } else {
-                    var res_link = [], non_link = [];
+                    let res_link = [], non_link = [];
                     if (typeof (result[0].ytb_links) == "string") {
-                        var links = result[0].ytb_links.split(';');
-                        for (var i = 0; i < links.length; i++) {
+                        let links = result[0].ytb_links.split(';');
+                        for (let i = 0; i < links.length; i++) {
                             //업지 않다면
                             if (links[i].indexOf('youtu.be/') != -1) {
                                 if (links[i].indexOf('https') != -1)
@@ -319,7 +318,7 @@ app.use('/postcorona', (req, res) => {
                                 else
                                     res_link.push(links[i].substring(16));
                             } else if (links[i].indexOf('youtube.com/') != -1) {
-                                var tmp = links[i].split('?');
+                                let tmp = links[i].split('?');
                                 tmp = tmp[1].split('&');
                                 tmp = tmp[0].substring(2);
                                 res_link.push(tmp);
@@ -331,7 +330,7 @@ app.use('/postcorona', (req, res) => {
 
                     console.log(req.session.user.name + '(' + req.session.user.id + ') : 포스트코로나 페이지 접속')
 
-                    var arr = [];
+                    let arr = [];
                     fs.readdir('/home/ubuntu/node/uploads/' + req.session.user.id, (err, files) => {
                         if (files)
                             files.forEach(file => {
@@ -357,7 +356,7 @@ app.use('/easteregg', (req, res) => {
     }
     else {
         console.log(req.session.user.name + '(' + req.session.user.id + ') : 이스터에그 페이지 접속')
-        var id = req.session.user.id;
+        let id = req.session.user.id;
         id = id.replace(/1/g, 'z') // 1->z
         id = id.replace(/2/g, 'g') // 2->g
         id = id.replace(/3/g, 'C') // 3->C
@@ -372,7 +371,7 @@ app.use('/easteregg', (req, res) => {
 app.use('/postegg', (req, res) => {
     if (!req.session.user) res.redirect('/login')
 
-    var id = req.body.f_code;
+    let id = req.body.f_code;
     id = id.replace(/z/g, '1') // 1->z
     id = id.replace(/g/g, '2') // 2->g
     id = id.replace(/C/g, '3') // 3->C
@@ -387,10 +386,10 @@ app.use('/postegg', (req, res) => {
             if (result.length == 0) {
                 res.render('main/nocab.ejs')
             } else {
-                var res_link = [], non_link = [];
+                let res_link = [], non_link = [];
                 if (typeof (result[0].ytb_links) == "string") {
-                    var links = result[0].ytb_links.split(';');
-                    for (var i = 0; i < links.length; i++) {
+                    let links = result[0].ytb_links.split(';');
+                    for (let i = 0; i < links.length; i++) {
                         //업지 않다면
                         if (links[i].indexOf('youtu.be/') != -1) {
                             if (links[i].indexOf('https') != -1)
@@ -398,7 +397,7 @@ app.use('/postegg', (req, res) => {
                             else
                                 res_link.push(links[i].substring(16));
                         } else if (links[i].indexOf('youtube.com/') != -1) {
-                            var tmp = links[i].split('?');
+                            let tmp = links[i].split('?');
                             tmp = tmp[1].split('&');
                             tmp = tmp[0].substring(2);
                             res_link.push(tmp);
@@ -410,7 +409,7 @@ app.use('/postegg', (req, res) => {
 
                 console.log(req.session.user.name + '(' + req.session.user.id + ') : ' + id + '의 이스터에그 페이지 접속')
 
-                var arr = [];
+                let arr = [];
                 fs.readdir('/home/ubuntu/node/uploads/' + id, (err, files) => {
                     if (files) {
                         //파일이 비어있다면 forEach를 쓸 수 없다.
